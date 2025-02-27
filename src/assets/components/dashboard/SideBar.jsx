@@ -49,12 +49,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
       {/* SideBar Header */}
 
-      <div className="p-3 flex justify-between items-center ">
-        <img src={CLI_LOGO} className={`w-15 h-15 -mr-10 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}/>
+      <div className={`p-3 flex justify-between ${isOpen ? 'absolute z-10 bg-white ' : 'bg-transparent'} justify-around items-center `}>
+        <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-300  ${isOpen ? '' : 'invisible hidden '}`}/>
         <div>
           <h1 className={` font-bold overflow-hidden transition-all duration-300 text-xl text-nowrap text-gray-800
             ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>
-            Chordz 
+            Health Care 
           </h1>
           <h1 className={` -mt-2 font-bold overflow-hidden transition-all duration-300 text-xl text-nowrap text-gray-800
             ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>
@@ -63,13 +63,13 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         </div>
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className={`hover:bg-blue-100 p-2 rounded-lg bg-blue-200`}
+          className={`hover:bg-blue-100 p-2 transition-all duration-300 ${isOpen? 'ml-24' : ''} rounded-lg bg-blue-200`}
         >
           {isOpen ? <Menu size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5}  />}
         </button>
       </div>
 
-      <nav className="mt-2 ">
+      <nav className={`${isOpen? 'mt-20' : ''} relative `}>
         
         {/* SideBar Options */}
         
