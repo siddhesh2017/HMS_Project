@@ -1,10 +1,11 @@
-import { Box, ChevronDown, Home, Menu, FileSpreadsheet, User, Package, X, ShieldUser, ClipboardMinus, GraduationCap, Tally5, FileSearch2 } from 'lucide-react';
+import { Box, ChevronDown, Home, Menu, FileSpreadsheet, User, Package, X, ShieldUser, ClipboardMinus, GraduationCap, Tally5, FileSearch2, KeyRound } from 'lucide-react';
 import { useState } from 'react';
 import CLI_LOGO from '../../../../public/clinovations logo.jpeg'
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [activeDropdown, setActiveDropdown] = useState('');
-
+  const navigateTo = useNavigate();
   const navItems = [
     { title: 'Patient ', 
       icon: Home, 
@@ -34,7 +35,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { title: 'Tally Interface', icon: Tally5, hasDropdown: false },
     { title: 'Masters', icon: GraduationCap, hasDropdown: false },
     { title: 'Reports', icon: ClipboardMinus, hasDropdown: false },
-    { title: 'Login', icon: ClipboardMinus, hasDropdown: false },
+    { title: 'Login', icon: KeyRound, hasDropdown: false },
 
   ];
 
@@ -76,11 +77,18 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         {navItems.map((item) => (
           <div key={item.title}>
             <div 
-              className="px-4 py-3 hover:bg-blue-200 rounded-lg m-2 cursor-pointer flex items-center justify-between"
-              onClick={() => item.hasDropdown && isOpen && setActiveDropdown(activeDropdown === item.title ? '' : item.title)}
+              className={`${item.title === 'Login'? 'bg-blue-500 text-white hover:bg-blue-600 h-16 text-xl font-bold' : ''} px-4 py-3 hover:bg-blue-200 rounded-lg m-2 cursor-pointer flex items-center justify-between`}
+              onClick={() => {
+                if (item.title === 'Login') {
+                  navigateTo('/login');
+                }
+                else{
+                  item.hasDropdown && isOpen && setActiveDropdown(activeDropdown === item.title ? '' : item.title)
+                }
+              }}
             >
               <div className="flex items-center">
-                <item.icon size={20} strokeWidth={1.5} color='#000' />
+                <item.icon size={`${item.title === 'Login' ? 23 : 20}`} strokeWidth={1.5} color={`${item.title === 'Login' ? 'white' : '#000'}`} />
                 <span className={`ml-4 whitespace-nowrap overflow-hidden transition-all duration-300
                   ${isOpen ? 'w-32 opacity-100' : 'w-0 opacity-0'}`}>
                   {item.title}

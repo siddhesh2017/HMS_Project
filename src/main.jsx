@@ -8,26 +8,30 @@ import HomeContent from './assets/components/Homepage/HomeContent.jsx'
 import LoginPage from './assets/components/Forms/LoginPage.jsx'
 import Temp from './assets/components/dashboard/Temp.jsx'
 
+const basename = process.env.NODE_ENV === 'production' ? '/healthcare.beatsacademy.in' : '';
+
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: `${basename}/`,
     element: <App/>,
     children: [
       {
-        path: '/',
+        path: `${basename}/`,
         element: <HomeContent/>
       },
       {
-        path: '/patient',
+        path: `${basename}/patient`,
         element: <Temp/>
       }
     ]
   },
   {
-    path: '/login',
+    path: `${basename}/login`,
     element: <LoginPage/>
   }
-])
+],
+
+);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
