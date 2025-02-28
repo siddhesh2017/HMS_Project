@@ -3,7 +3,7 @@ import image from '../../../../public/medicine-blue-background-flat-lay.jpg'
 
 const LoginPage = () => {
   return (
-    <div className='w-full h-screen bg-center bg-cover bg-[url(../../../../public/medicine-blue-background-flat-lay.jpg)] flex items-center justify-center p-30'>
+    <div className='w-full h-screen bg-center bg-cover bg-[url(https://img.freepik.com/free-photo/top-view-medicine-blue-background_23-2149341569.jpg?t=st=1740718184~exp=1740721784~hmac=d2129eb1cf3a78274db4ce9513d0109f31f9ea7c8b5a6f73a97dab83eb16cd49&w=1380)] flex items-center justify-center p-30'>
       {/* Login Form */}
       <div className="flex flex-col items-center justify-center h-screen">
           <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
