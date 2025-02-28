@@ -43,18 +43,18 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     // SideBar Outer div
 
     <div 
-      className={`bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] 
+      className={`bg-white   scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] 
         ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'} `}
     >
 
       {/* SideBar Header */}
 
-      <div className={`p-3 flex justify-between ${isOpen ? 'absolute z-10 bg-white ' : 'bg-transparent'} justify-around items-center `}>
+      <div className={`py-2.5 px-4 w-auto flex justify-between ${isOpen ? 'absolute z-10 bg-white ' : 'bg-transparent'} justify-around items-center `}>
         <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-300  ${isOpen ? '' : 'invisible hidden '}`}/>
         <div>
           <h1 className={` font-bold overflow-hidden transition-all duration-300 text-xl text-nowrap text-gray-800
             ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>
-            Health Care 
+            Clinovations 
           </h1>
           <h1 className={` -mt-2 font-bold overflow-hidden transition-all duration-300 text-xl text-nowrap text-gray-800
             ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>
@@ -63,7 +63,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         </div>
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className={`hover:bg-blue-100 p-2 transition-all duration-300 ${isOpen? 'ml-24' : ''} rounded-lg bg-blue-200`}
+          className={`hover:bg-blue-100 p-2 transition-all duration-300 ${isOpen? 'ml-20' : ''} rounded-lg bg-blue-200`}
         >
           {isOpen ? <Menu size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5}  />}
         </button>

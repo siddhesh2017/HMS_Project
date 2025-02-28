@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainContent from './assets/components/dashboard/MainContent.jsx'
 import HomeContent from './assets/components/Homepage/HomeContent.jsx'
 import LoginPage from './assets/components/Forms/LoginPage.jsx'
+import Temp from './assets/components/dashboard/Temp.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/patient',
-        element: <MainContent/>
+        element: <Temp/>
       }
     ]
   },
