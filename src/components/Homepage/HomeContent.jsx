@@ -1,5 +1,5 @@
 import React from 'react'
-import HomePageBanner from '../../../../public/Banner.jpeg'
+import HomePageBanner from '/Banner.jpeg'
 
 const HomeContent = () => {
   return (
