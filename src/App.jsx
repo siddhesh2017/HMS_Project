@@ -1,8 +1,8 @@
 import React from 'react'
-import Sidebar from './assets/components/dashboard/SideBar'
-import MainContent from './assets/components/dashboard/MainContent'
+import Sidebar from './components/dashboard/SideBar'
+import MainContent from './components/dashboard/MainContent'
 import { useState } from'react'
-import Footer from './assets/components/dashboard/Footer'
+import Footer from './components/dashboard/Footer'
 
 
 const App = () => {

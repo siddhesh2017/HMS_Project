@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import MainContent from './assets/components/dashboard/MainContent.jsx'
-import HomeContent from './assets/components/Homepage/HomeContent.jsx'
-import LoginPage from './assets/components/Forms/LoginPage.jsx'
-import Temp from './assets/components/dashboard/Temp.jsx'
+import HomeContent from './components/Homepage/HomeContent.jsx'
+import LoginPage from './components/Forms/LoginPage.jsx'
+import Patients from './components/Patients/Patients.jsx'
+import PhoneAppoinment from './components/Patients/PhoneAppoinment.jsx'
+import PhoneAppList from './components/Patients/PhoneAppList.jsx'
 
 const basename = process.env.NODE_ENV === 'production' ? '/healthcare.beatsacademy.in' : '';
 
@@ -20,8 +21,18 @@ const router = createBrowserRouter([
         element: <HomeContent/>
       },
       {
-        path: `${basename}/patient`,
-        element: <Temp/>
+        path: `${basename}/patient/`,
+        element: <Patients/>,
+        children: [
+          {
+            path: 'appoinment',
+            element: <PhoneAppoinment/>,
+          },
+          {
+            path: 'appoinmentlist',
+            element: <PhoneAppList/>
+          }
+        ]
       }
     ]
   },

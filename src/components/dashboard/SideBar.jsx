@@ -1,6 +1,6 @@
 import { Box, ChevronDown, Home, Menu, FileSpreadsheet, User, Package, X, ShieldUser, ClipboardMinus, GraduationCap, Tally5, FileSearch2, KeyRound, QrCode } from 'lucide-react';
 import { useState } from 'react';
-import CLI_LOGO from '../../../../public/clinovations logo.jpeg'
+import CLI_LOGO from '/clinovations logo.jpeg'
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -51,9 +51,9 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   ];
 
   return (
-    <div className={`bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'}`}>
+    <div className={` bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'}`}>
   {/* SideBar Header */}
-      <div className={`py-2.5 px-5 flex justify-between ${isOpen ? 'absolute z-10 bg-white ' : 'bg-transparent'} justify-around items-center`}>
+      <div className={`py-2.5  flex justify-between ${isOpen ? 'absolute z-10 bg-white px-5' : 'bg-transparent px-4'} justify-around items-center`}>
         <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-300 ${isOpen ? '' : 'invisible hidden'}`} />
         <div>
           <h1 className={`font-bold transition-all duration-300 text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>Clinovations </h1>
