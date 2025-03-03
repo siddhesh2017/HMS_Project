@@ -2,6 +2,189 @@ import React from 'react';
 import Table from '../Tables/Table';
 
 const Temp = () => {
+
+const TABLE_HEAD = ["Seq no.", "Date", "Patient Name", "Mobile", "App. type", "App. Date", "App. Time", "Dept. Name", "Doctor Name", "Doc. Mob.", "Ref Doc Name", "Appt Given", "Appt Kept"];
+ 
+// Hard Coded data for tables, later to be fetched from endpoints
+const TABLE_ROWS = [
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },  
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+  {
+    seq_no: "1",
+    date: "03/03/2025",
+    patient_name: "Om Jagtap",
+    mobile: "9699584472",
+    app_type: "New",
+    app_date: "03/03/2025",
+    app_time: "10:00 AM",
+    dept_name: "Cardiology",
+    doctor_name: "Dr. Ramesh Jain",
+    doc_mob: "9999999999",
+    ref_doc_name: "Dr. ABC",
+    appt_given: "Yes",
+    appt_kept: "Yes",
+    
+  },
+];
+
   return (
     <div className="w-full h-full  rounded-lg flex flex-col flex-wrap justify-around items-center p-2 overflow-scroll scrollbar-hidden">
       {/* Form and Table Section */}
@@ -18,15 +201,18 @@ const Temp = () => {
                 <input type="text" className="w-full h-9 sm:h-auto rounded-lg p-2 m-2 bg-gray-200" placeholder="Last Name" />
               </div>
             </div>
-            <label htmlFor="doctortype"></label>
-            <div className="flex items-center w-full mb-4 mt-5">
-              <h3>Doctor</h3>
-              <select id="doctortype" className="w-full h-9 sm:h-auto border border-gray-300 rounded-lg p-2 m-2">
-                <option value="">Dr.ABC</option>
-                <option value="">Dr.XYZ</option>
-                <option value="">Dr.Select</option>
-              </select>
+
+            <div className="flex flex-col items-stretch justify-center w-full mb-4 mt-5">
+              <label htmlFor="doctortype">Doctor</label>
+              <div id="doctortype">
+                <select className="w-full h-9 sm:h-auto border border-gray-300 rounded-lg p-2 m-2">
+                  <option value="">Dr.ABC</option>
+                  <option value="">Dr.XYZ</option>
+                  <option value="">Dr.Select</option>
+                </select>
+              </div>
             </div>
+
             <div className="my-2 w-full">
               <label htmlFor="from">From</label>
               <input id="from" className="w-full h-9 sm:h-auto p-2 bg-gray-200 rounded-lg ml-2" type="date" />

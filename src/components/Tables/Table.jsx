@@ -2,7 +2,6 @@ import { Card, Typography } from "@material-tailwind/react";
  
 const TABLE_HEAD = ["Seq no.", "Date", "Patient Name", "Mobile", "App. type", "App. Date", "App. Time", "Dept. Name", "Doctor Name", "Doc. Mob.", "Ref Doc Name", "Appt Given", "Appt Kept"];
  
-
 // Hard Coded data for tables, later to be fetched from endpoints
 const TABLE_ROWS = [
   {
@@ -183,7 +182,7 @@ const TABLE_ROWS = [
   },
 ];
  
-export default function TableWithHoverState() {
+ function TableWithHoverState() {
   return (
     <Card className="h-full w-full overflow-scroll px-6 border-none">
       <table className="w-full min-w-max table-auto text-left">
@@ -322,3 +321,5 @@ export default function TableWithHoverState() {
     </Card>
   );
 }
+
+export default TableWithHoverState;

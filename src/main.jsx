@@ -8,6 +8,7 @@ import LoginPage from './components/Forms/LoginPage.jsx'
 import Patients from './components/Patients/Patients.jsx'
 import PhoneAppoinment from './components/Patients/PhoneAppoinment.jsx'
 import PhoneAppList from './components/Patients/PhoneAppList.jsx'
+import MedicalRecords from './components/Patients/MedicalRecords.jsx'
 
 const basename = process.env.NODE_ENV === 'production' ? '/healthcare.beatsacademy.in' : '';
 
@@ -31,7 +32,47 @@ const router = createBrowserRouter([
           {
             path: 'appoinmentlist',
             element: <PhoneAppList/>
-          }
+          },
+          {
+            path: 'queue-management',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'medical-records',
+            element: <MedicalRecords/>
+          },
+          {
+            path: 'opd-bills',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'opd-settlement',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'bill-refund',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'view-opd-bills-and-receipts',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'followup-list',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'visitor-management',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'courier-management',
+            element: <PhoneAppList/>
+          },
+          {
+            path: 'vaccination',
+            element: <PhoneAppList/>
+          },
         ]
       }
     ]

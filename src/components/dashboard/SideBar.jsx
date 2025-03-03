@@ -1,11 +1,12 @@
-import { Box, ChevronDown, Home, Menu, FileSpreadsheet, User, Package, X, ShieldUser, ClipboardMinus, GraduationCap, Tally5, FileSearch2, KeyRound, QrCode } from 'lucide-react';
 import { useState } from 'react';
-import CLI_LOGO from '/clinovations logo.jpeg'
+import { ChevronDown, Home, User, FileSpreadsheet, FileSearch2, Package, Box, ShieldUser, Tally5, GraduationCap, ClipboardMinus, KeyRound, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import CLI_LOGO from '/clinovations logo.jpeg';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [activeDropdown, setActiveDropdown] = useState('');
   const [activeSubDropdown, setActiveSubDropdown] = useState('');
+  const [activeSubSubDropdown, setActiveSubSubDropdown] = useState(''); // New state for sub-sub-dropdown
   const navigateTo = useNavigate();
 
   const navItems = [
@@ -14,46 +15,97 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       icon: Home, 
       hasDropdown: true,
       dropdownItems: [
-        { title: 'OPD', hasSubDropdown: true, subItems: ['Phone Appoinment', 'Phone Appoinment List', 'Registeration', 'Queue Management', 'Medical Records', 'OPD Bills', 'OPD Settlement', 'Bill Refund', 'View OPD Bills and Receipts', 'Followup List', 'Visitor Management', 'Courier Management', 'Vaccination'] },
-        { title: 'IPD', hasSubDropdown: true, subItems: ['Admission', 'Patient Recived', 'IPD Advanced', 'Add Services (Bill)', 'Discharge', 'Refund', 'Bed Transfer', 'View Pathelogy Report', 'View IPD Bills and Receipts', 'IPD Settlement', 'Bed View', 'Patient Display', 'Bed Release', 'Due', 'IPD Smart Access', 'Relative Bed Allocation', 'Relative BedDeAllocation'] }
+        { 
+          title: 'OPD', hasSubDropdown: true, subItems: ['Phone Appoinment', 'Phone Appoinment List', 'Registeration', 'Queue Management', 'Medical Records', 'OPD Bills', 'OPD Settlement', 'Bill Refund', 'View OPD Bills and Receipts', 'Followup List', 'Visitor Management', 'Courier Management', 'Vaccination'],
+        },
+        { 
+          title: 'IPD', hasSubDropdown: true, subItems: ['Admission', 'Patient Recived', 'IPD Advanced', 'Add Services (Bill)', 'Discharge', 'Refund', 'Bed Transfer', 'View Pathelogy Report', 'View IPD Bills and Receipts', 'IPD Settlement', 'Bed View', 'Patient Display', 'Bed Release', 'Due', 'IPD Smart Access', 'Relative Bed Allocation', 'Relative BedDeAllocation'],
+        }
       ]
     },
-    { title: 'Nursing', icon: User },
     { 
-      title: 'OT Details', 
-      icon: FileSpreadsheet,
-      hasDropdown: true,
-      dropdownItems: [
-        { title: 'Inbox', hasSubDropdown: false },
-        { title: 'Sent', hasSubDropdown: false },
-        { title: 'Drafts', hasSubDropdown: false },
-        { title: 'Archived', hasSubDropdown: false }
-      ]
+      title: 'User', 
+      icon: User, 
+      hasDropdown: false
     },
-    { title: 'Investigation', icon: FileSearch2 },
     { 
-      title: 'Inventory',
-      icon: Package,
-      hasDropdown: true,
-      dropdownItems: [
-        { title: 'Preferences', hasSubDropdown: false },
-        { title: 'Security', hasSubDropdown: false },
-        { title: 'Notifications', hasSubDropdown: false }
-      ]
+      title: 'Reports', 
+      icon: FileSpreadsheet, 
+      hasDropdown: false
     },
-    { title: 'MRD', icon: Box },
-    { title: 'NABH', icon: Box },
-    { title: 'Administration', icon: ShieldUser },
-    { title: 'Tally Interface', icon: Tally5 },
-    { title: 'Masters', icon: GraduationCap },
-    { title: 'Reports', icon: ClipboardMinus },
-    { title: 'Login', icon: KeyRound }
+    { 
+      title: 'Search', 
+      icon: FileSearch2, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Inventory', 
+      icon: Package, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Dashboard', 
+      icon: Box, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Security', 
+      icon: ShieldUser, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Statistics', 
+      icon: Tally5, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Academics', 
+      icon: GraduationCap, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Documents', 
+      icon: ClipboardMinus, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Settings', 
+      icon: KeyRound, 
+      hasDropdown: false
+    },
+    { 
+      title: 'Login', 
+      icon: User, 
+      hasDropdown: false
+    }
   ];
 
+  const handleClick = (subItem) => {
+    const routeMap = {
+      'Phone Appoinment': '/patient/appoinment',
+      'Phone Appoinment List': '/patient/appoinmentlist',
+      // Removed 'Registeration' from routeMap
+      'Queue Management': '/patient/queue-management',
+      'Medical Records': '/patient/medical-records',
+      'OPD Bills': '/patient/opd-bills',
+      'OPD Settlement': '/patient/opd-settlement',
+      'Bill Refund': '/patient/bill-refund',
+      'View OPD Bills and Receipts': '/patient/view-opd-bills-and-receipts',
+      'Followup List': '/patient/followup-list',
+      'Visitor Management': '/patient/visitor-management',
+      'Courier Management': '/patient/courier-management',
+      'Vaccination': '/patient/vaccination',
+    };
+
+    if (routeMap[subItem]) {
+      navigateTo(routeMap[subItem]);
+    }
+  };
+
   return (
-    <div className={` bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'}`}>
-  {/* SideBar Header */}
-      <div className={`py-2.5  flex justify-between ${isOpen ? 'absolute z-10 bg-white px-5' : 'bg-transparent px-4'} justify-around items-center`}>
+    <div className={`bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'}`}>
+      {/* SideBar Header */}
+      <div className={`py-2.5 flex justify-between ${isOpen ? 'absolute z-10 bg-white px-5' : 'bg-transparent px-4'} justify-around items-center`}>
         <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-300 ${isOpen ? '' : 'invisible hidden'}`} />
         <div>
           <h1 className={`font-bold transition-all duration-300 text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>Clinovations </h1>
@@ -64,7 +116,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         </button>
       </div>
 
-  {/* DropDown Menu */}
+      {/* DropDown Menu */}
       <nav className={`${isOpen ? 'mt-20' : ''} relative`}>
         {navItems.map((item) => (
           <div key={item.title}>
@@ -87,24 +139,53 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               )}
             </div>
             {item.hasDropdown && isOpen && activeDropdown === item.title && (
-              
-  // DropDown Options
               <div className="bg-gray-100 ml-2 pl-4 py-2 pr-1 border-l-1 transition-all duration-800">
                 {item.dropdownItems.map((dropdownItem) => (
                   <div key={dropdownItem.title}>
                     <div 
                       className="px-11 py-2 rounded-lg hover:bg-blue-100 cursor-pointer flex justify-between items-center"
-                      onClick={() => dropdownItem.hasSubDropdown && setActiveSubDropdown(activeSubDropdown === dropdownItem.title ? '' : dropdownItem.title)}
+                      onClick={() => {
+                        dropdownItem.hasSubDropdown && setActiveSubDropdown(activeSubDropdown === dropdownItem.title ? '' : dropdownItem.title);
+                      }}
                     >
                       {dropdownItem.title}
-                      {dropdownItem.hasSubDropdown && <ChevronDown size={14} strokeWidth={1.5} className={`transition-transform duration-200 ${activeSubDropdown === dropdownItem.title ? 'rotate-180' : ''}`} />}
+                      {dropdownItem.hasSubDropdown && (
+                        <ChevronDown size={14} strokeWidth={1.5} className={`transition-transform duration-200 ${activeSubDropdown === dropdownItem.title ? 'rotate-180' : ''}`} />
+                      )}
                     </div>
                     {dropdownItem.hasSubDropdown && activeSubDropdown === dropdownItem.title && (
-                      
-  // SubDropDown Options
-                      <div className="my-2 p-2 border-l-1 bg-gray-200  transition-all duration-800">
+                      <div className="my-2 p-2 border-l-1 bg-gray-200 transition-all duration-800">
                         {dropdownItem.subItems.map((subItem) => (
-                          <div key={subItem} className="px-14 py-2 rounded-lg  hover:bg-blue-200 cursor-pointer">{subItem}</div>
+                          <div key={subItem}>
+                            <div 
+                              className="px-10 py-2 rounded-lg hover:bg-blue-200 cursor-pointer flex justify-between items-center"
+                              onClick={() => {
+                                // Check if subItem is 'Registeration' and open sub-sub-dropdown
+                                if (subItem === 'Registeration') {
+                                  setActiveSubSubDropdown(activeSubSubDropdown === subItem ? '' : subItem);
+                                } else {
+                                  handleClick(subItem);
+                                }
+                              }} 
+                            >
+                              <span>{subItem}</span>
+                              {subItem === 'Registeration' && (
+                                <ChevronDown 
+                                  size={14} 
+                                  strokeWidth={1.5} 
+                                  className={`transition-transform duration-200 ${activeSubSubDropdown === subItem ? 'rotate-180' : ''}`} 
+                                />
+                              )}
+                            </div>
+
+                            {/* Sub-Sub Dropdown for Registeration */}
+                            {subItem === 'Registeration' && activeSubSubDropdown === 'Registeration' && (
+                              <div className="my-2 p-2 bg-gray-300 transition-all duration-800">
+                                <button className="px-16 py-2 w-full text-left rounded-lg hover:bg-blue-300 cursor-pointer">Sub Item 1</button>
+                                <button className="px-16 py-2 w-full text-left rounded-lg hover:bg-blue-300 cursor-pointer">Sub Item 2</button>
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
