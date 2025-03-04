@@ -9,6 +9,10 @@ import Patients from './components/Patients/Patients.jsx'
 import PhoneAppoinment from './components/Patients/PhoneAppoinment.jsx'
 import PhoneAppList from './components/Patients/PhoneAppList.jsx'
 import MedicalRecords from './components/Patients/MedicalRecords.jsx'
+import NotCreatedYet from './components/Patients/NotCreatedYet.jsx'
+import OpdBills from './components/Patients/OpdBills.jsx'
+import OpPatientPayment from './components/Patients/OpPatientPayment.jsx'
+import CompanySettlement from './components/Patients/CompanySettlement/CompanySettlement.jsx'
 
 const basename = process.env.NODE_ENV === 'production' ? '/healthcare.beatsacademy.in' : '';
 
@@ -34,8 +38,16 @@ const router = createBrowserRouter([
             element: <PhoneAppList/>
           },
           {
+            path: 'registeration/express',
+            element: <NotCreatedYet/>
+          },
+          {
+            path: 'registeration/regular',
+            element: <NotCreatedYet/>
+          },
+          {
             path: 'queue-management',
-            element: <PhoneAppList/>
+            element: <NotCreatedYet/>
           },
           {
             path: 'medical-records',
@@ -43,35 +55,55 @@ const router = createBrowserRouter([
           },
           {
             path: 'opd-bills',
-            element: <PhoneAppList/>
+            element: <OpdBills/>
           },
           {
-            path: 'opd-settlement',
-            element: <PhoneAppList/>
+            path: 'opd-settlement/op-patient-payment',
+            element: <OpPatientPayment/>
+          },
+          {
+            path: 'opd-settlement/company-settlement',
+            element: <CompanySettlement/>
           },
           {
             path: 'bill-refund',
-            element: <PhoneAppList/>
+            element: <NotCreatedYet/>
           },
           {
-            path: 'view-opd-bills-and-receipts',
-            element: <PhoneAppList/>
+            path: 'view-opd-bills-and-receipts/bill',
+            element: <NotCreatedYet/>
+          },
+          {
+            path: 'view-opd-bills-and-receipts/opd-receipt',
+            element: <NotCreatedYet/>
+          },
+          {
+            path: 'view-opd-bills-and-receipts/opd-refund',
+            element: <NotCreatedYet/>
+          },
+          {
+            path: 'view-opd-bills-and-receipts/prescriptions',
+            element: <NotCreatedYet/>
           },
           {
             path: 'followup-list',
-            element: <PhoneAppList/>
+            element: <NotCreatedYet/>
           },
           {
-            path: 'visitor-management',
-            element: <PhoneAppList/>
+            path: 'visitor-management/issue-visitor-pass',
+            element: <NotCreatedYet/>
+          },
+          {
+            path: 'visitor-management/collect-visitor-pass',
+            element: <NotCreatedYet/>
           },
           {
             path: 'courier-management',
-            element: <PhoneAppList/>
+            element: <NotCreatedYet/>
           },
           {
             path: 'vaccination',
-            element: <PhoneAppList/>
+            element: <NotCreatedYet/>
           },
         ]
       }
