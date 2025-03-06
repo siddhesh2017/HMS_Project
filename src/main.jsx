@@ -14,19 +14,19 @@ import OpdBills from './components/Patients/OpdBills.jsx'
 import OpPatientPayment from './components/Patients/OpPatientPayment.jsx'
 import CompanySettlement from './components/Patients/CompanySettlement/CompanySettlement.jsx'
 
-const basename = process.env.NODE_ENV === 'production' ? '/healthcare.beatsacademy.in' : '';
+const basename = process.env.NODE_ENV === 'production' ? '/' : '';
 
 const router = createBrowserRouter([
   {
-    path: `${basename}/`,
+    path: `/`,
     element: <App/>,
     children: [
       {
-        path: `${basename}/`,
+        path: `/`,
         element: <HomeContent/>
       },
       {
-        path: `${basename}/patient/`,
+        path: `/patient/`,
         element: <Patients/>,
         children: [
           {
@@ -110,10 +110,11 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: `${basename}/login`,
+    path: `/login`,
     element: <LoginPage/>
-  }
+  },
 ],
+{basename}
 
 );
 
