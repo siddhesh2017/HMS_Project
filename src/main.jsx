@@ -13,6 +13,7 @@ import NotCreatedYet from './components/Patients/NotCreatedYet.jsx'
 import OpdBills from './components/Patients/OpdBills.jsx'
 import OpPatientPayment from './components/Patients/OpPatientPayment.jsx'
 import CompanySettlement from './components/Patients/CompanySettlement/CompanySettlement.jsx'
+import ExpressRegisteration from './components/Patients/ExpressRegisteration/ExpressRegisteration.jsx'
 
 const basename = process.env.NODE_ENV === 'production' ? '/HMS_Project' : '';
 
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'registeration/express',
-            element: <NotCreatedYet/>
+            element: <ExpressRegisteration/>
           },
           {
             path: 'registeration/regular',
