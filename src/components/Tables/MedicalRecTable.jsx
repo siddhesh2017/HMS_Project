@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Typography } from "@material-tailwind/react";
 
-const MedicalRecTable = () => {
+const MedicalRecTable = ({}) => {
     const TABLE_HEAD = ["UHID", "Patient Name", "Date", "Time", "Doctor Name", "Ref Doc Name", "OPD No", "Tariff Name", "Company Name", "Start Time", "End Time", "Consult Time" ,"Status"];
   const TABLE_ROWS =  [
     {

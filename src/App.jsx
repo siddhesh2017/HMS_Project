@@ -10,7 +10,7 @@ const App = () => {
 
   return (
       <>
-        <div className="h-screen flex bg-blue-400 pr-3 pt-4 pb-8">
+        <div className="h-screen flex bg-blue-400 pr-2 sm:pr-3 pt-3 sm:pt-4 pb-2 sm:pb-8">
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
           <MainContent />
         </div>
