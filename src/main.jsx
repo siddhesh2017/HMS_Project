@@ -15,7 +15,7 @@ import OpPatientPayment from './components/Patients/OpPatientPayment.jsx'
 import CompanySettlement from './components/Patients/CompanySettlement/CompanySettlement.jsx'
 import ExpressRegisteration from './components/Patients/ExpressRegisteration/ExpressRegisteration.jsx'
 
-const basename = process.env.NODE_ENV === 'production' ? '/' : '';
+const basename = process.env.NODE_ENV === 'production' ? '/HMS_Project' : '';
 
 const router = createBrowserRouter([
   {
