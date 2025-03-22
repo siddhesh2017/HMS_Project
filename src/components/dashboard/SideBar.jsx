@@ -145,19 +145,19 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     // Main sidebar container with responsive width depending on isOpen state
-    <div className={`bg-white scrollbar-hidden text-black transition-all duration-300 ease-in-out text-sm border-2 rounded-lg ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 xs:overflow-hidden' : 'w-17'}`}>
+    <div className={`bg-white scrollbar-hidden relative text-black transition-all duration-500 ease-in-out text-sm border-2 rounded-lg ml-2 sm:ml-4 border-[rgba(0,0,0,0.09)] ${isOpen ? 'w-88 sm:w-80 xs:overflow-hidden' : 'w-11 sm:w-17'}`}>
       {/* Sidebar Header - Contains logo, title and toggle button */}
-      <div className={`py-2.5 flex justify-between ${isOpen ? 'absolute z-10 bg-white px-5' : 'bg-transparent px-4'} justify-around items-center`}>
+      <div className={`py-2.5 bg-white rounded-lg flex justify-between transition-all duration-500 ease-in-out ${isOpen ? 'absolute z-10  px-6.5 sm:px-5 ' : ' relative  px-1.5 sm:px-4'}  items-center`}>
         {/* Logo - Hidden when sidebar is collapsed */}
-        <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-300 ${isOpen ? '' : 'invisible hidden'}`} />
+        <img src={CLI_LOGO} className={`w-15 h-15 transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0  hidden'}`} />
         <div>
           {/* Title text - Hidden when sidebar is collapsed */}
-          <h1 className={`font-bold transition-all duration-300 text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>Clinovations </h1>
-          <h1 className={`font-bold transition-all duration-300 text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}> Systems</h1>
+          <h1 className={`font-bold transition-all duration-500 ease-in-out text-lg leading-5.5 sm:text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>Clinovations </h1>
+          <h1 className={`font-bold transition-all duration-500 ease-in-out text-lg leading-5.5 sm:text-xl text-gray-800 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}> Systems</h1>
         </div>
         {/* Toggle button to expand/collapse sidebar */}
-        <button onClick={() => setIsOpen(!isOpen)} className={`hover:bg-blue-100 p-2 transition-all duration-300 ${isOpen ? 'ml-20' : ''} rounded-lg bg-blue-200`}>
-          <Menu size={20} strokeWidth={1.5} />
+        <button onClick={() => setIsOpen(!isOpen)} className={`hover:bg-blue-100 p-2 transition-all duration-300 ${isOpen ? 'ml-20 sm:ml-13' : ''} rounded-md sm:rounded-lg bg-blue-200`}>
+          <Menu className={` ${isOpen? 'w-5.5 h-5.5': 'w-3.5 h-3.5 sm:w-5.5 sm:h-5.5'} `} strokeWidth={1.5} />
         </button>
       </div>
 
@@ -168,7 +168,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           <div key={item.title}>
             {/* Level 1: Main menu item */}
             <div 
-              className={`px-4 py-3 hover:bg-blue-200 rounded-lg m-2 cursor-pointer flex items-center justify-between ${item.title === 'Login' ? 'bg-blue-500 text-white hover:bg-blue-600 h-16 text-xl font-bold' : ''}`} 
+              className={`px-1 sm:px-4 py-3 hover:bg-blue-200 rounded-lg m-2 cursor-pointer flex items-center justify-between ${item.title === 'Login' ? `bg-blue-500 text-white hover:bg-blue-600 ${isOpen? 'h-16': 'h-6 sm:h-12'} text-xl font-bold` : ''}`} 
               onClick={() => {
                 // Special case for Login item - direct navigation
                 if (item.title === 'Login') {
@@ -181,8 +181,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             >
               {/* Icon and title for main menu item */}
               <div className="flex items-center ">
-                <item.icon size={20} strokeWidth={1.5} color={item.title === 'Login' ? 'white' : '#000'} />
-                <span className={`ml-4 transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 hidden'}`}>{item.title}</span>
+                <item.icon className='w-4 h-4 sm:w-5 sm:h-5' strokeWidth={1.5} color={item.title === 'Login' ? 'white' : '#000'} />
+                <span className={` transition-all text-[13px] lg:text-[15px] duration-300 ${isOpen ? 'opacity-100 ml-4' : 'opacity-0 hidden'}`}>{item.title}</span>
               </div>
               
               {/* Dropdown arrow - Only shown for items with dropdowns when sidebar is expanded */}
@@ -203,7 +203,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   <div key={dropdownItem.title}>
                     {/* Level 2: Dropdown item */}
                     <div 
-                      className="px-11 py-2 rounded-lg hover:bg-blue-100 cursor-pointer flex justify-between items-center"
+                      className="px-11 py-2 rounded-lg text-[12px] lg:text-[15px] hover:bg-blue-100 cursor-pointer flex justify-between items-center"
                       onClick={() => {
                         // Toggle sub-dropdown visibility if this item has sub-items
                         dropdownItem.hasSubDropdown && setActiveSubDropdown(activeSubDropdown === dropdownItem.title ? '' : dropdownItem.title);
@@ -229,7 +229,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                           <div key={typeof subItem === 'object' ? subItem.title : subItem}>
                             {/* Level 3: Sub-item - Support both string and object formats */}
                             <div 
-                              className="px-10 py-2 rounded-lg hover:bg-blue-200 cursor-pointer flex justify-between items-center"
+                              className="px-10 py-2 rounded-lg text-[11px] lg:text-[15px] hover:bg-blue-200 cursor-pointer flex justify-between items-center"
                               onClick={() => {
                                 // Handle both string items and object items with potential sub-items
                                 const subItemObj = typeof subItem === 'object' ? subItem : { title: subItem, hasSubItems: false };
