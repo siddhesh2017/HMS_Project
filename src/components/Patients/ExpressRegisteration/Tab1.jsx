@@ -31,7 +31,7 @@ const Tab1 = () => {
         },
       ];
 
-      const TABLE_ROWS =  [
+    const TABLE_ROWS =  [
         {
             service_name: "Service 1",
             price: "1000",
